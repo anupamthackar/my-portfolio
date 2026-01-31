@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://anupamthackar.in/sitemap.xml
