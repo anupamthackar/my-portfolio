@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform, useSpring, useMotionValue, AnimatePresence, easeInOut, easeOut } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring, useMotionValue, AnimatePresence, easeInOut } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import { Mail, Phone, Linkedin, Github, Calendar, Award, Code, Cpu, Database, Layers, Terminal, ExternalLink, BookOpen, ChevronDown, Sun, Moon, Watch, Plane, Shield, Building2, ShoppingBag } from 'lucide-react';
 
