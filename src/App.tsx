@@ -271,12 +271,12 @@ function App() {
       </motion.nav>
 
       {/* HERO */}
-      <section id="hero" className="min-h-screen flex items-center justify-center px-6 pl-20 lg:pl-28 relative">
+      <section id="hero" className="min-h-screen flex items-center justify-center px-6 pl-6 sm:pl-20 lg:pl-28 relative">
         <div className="absolute bottom-0 w-full h-1/2 opacity-20" style={{ backgroundImage: `linear-gradient(to bottom, transparent, rgba(6,182,212,0.1)), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "100% 100%, 50px 50px, 50px 50px", transform: "perspective(500px) rotateX(60deg)", transformOrigin: "bottom" }} />
         
         <div className="text-center relative z-10 max-w-4xl mx-auto">
           <motion.div className="mb-8 relative inline-block" initial={{ scale: 0, rotate: -180 }} animate={{ scale: 1, rotate: 0 }} transition={{ type: "spring", stiffness: 150, damping: 20, delay: 0.2 }}>
-            <motion.div className="w-36 h-36 md:w-44 md:h-44 rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 p-1" animate={{ boxShadow: ["0 0 30px rgba(6,182,212,0.4)", "0 0 60px rgba(6,182,212,0.7)", "0 0 30px rgba(6,182,212,0.4)"] }} transition={{ duration: 2, repeat: Infinity }}>
+            <motion.div className="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 p-1" animate={{ boxShadow: ["0 0 30px rgba(6,182,212,0.4)", "0 0 60px rgba(6,182,212,0.7)", "0 0 30px rgba(6,182,212,0.4)"] }} transition={{ duration: 2, repeat: Infinity }}>
               <div className={`w-full h-full rounded-full overflow-hidden ${isDark ? 'bg-slate-950' : 'bg-gray-50'}`}>
                 <img src="/profile-hero.png" alt="Anupam Thackar" className="w-full h-full object-cover" />
               </div>
@@ -319,7 +319,7 @@ function App() {
       </section>
 
       {/* ABOUT */}
-      <section id="about" className="min-h-screen flex items-center py-20 px-6 pl-20 lg:pl-28">
+      <section id="about" className="min-h-screen flex items-center py-20 px-6 pl-6 sm:pl-20 lg:pl-28">
         <div className="max-w-5xl mx-auto w-full">
           <motion.h2 className="text-3xl md:text-4xl font-bold mb-12 text-center" variants={revealVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}>
             <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">About Me</span>
@@ -348,7 +348,7 @@ function App() {
       </section>
 
       {/* EXPERIENCE */}
-      <section id="experience" className={`min-h-screen flex items-center py-20 px-6 pl-20 lg:pl-28 ${t.section}`}>
+      <section id="experience" className={`min-h-screen flex items-center py-20 px-6 pl-6 sm:pl-20 lg:pl-28 ${t.section}`}>
         <div className="max-w-5xl mx-auto w-full">
           <motion.h2 className="text-3xl md:text-4xl font-bold mb-12 text-center" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Work Experience</span>
@@ -378,7 +378,7 @@ function App() {
       </section>
 
       {/* SKILLS */}
-      <section id="skills" className="min-h-screen flex items-center py-20 px-6 pl-20 lg:pl-28">
+      <section id="skills" className="min-h-screen flex items-center py-20 px-6 pl-6 sm:pl-20 lg:pl-28">
         <div className="max-w-5xl mx-auto w-full">
           <motion.h2 className="text-3xl md:text-4xl font-bold mb-12 text-center" variants={revealVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}>
             <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Technical Skills</span>
@@ -406,7 +406,7 @@ function App() {
       </section>
 
       {/* PROJECTS */}
-      <section id="projects" className={`py-20 px-6 pl-20 lg:pl-28 ${t.section}`}>
+      <section id="projects" className={`py-20 px-6 pl-6 sm:pl-20 lg:pl-28 ${t.section}`}>
         <div className="max-w-6xl mx-auto w-full">
           <motion.h2 className="text-3xl md:text-4xl font-bold mb-4 text-center" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
             <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Featured Projects</span>
@@ -492,7 +492,7 @@ function App() {
       </section>
 
       {/* EDUCATION */}
-      <section id="education" className="min-h-screen flex items-center py-20 px-6 pl-20 lg:pl-28">
+      <section id="education" className="min-h-screen flex items-center py-20 px-6 pl-6 sm:pl-20 lg:pl-28">
         <div className="max-w-5xl mx-auto w-full">
           <motion.h2 className="text-3xl md:text-4xl font-bold mb-12 text-center" variants={revealVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}>
             <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Education</span>
@@ -515,7 +515,7 @@ function App() {
       </section>
 
       {/* BLOGS */}
-      <section id="blogs" className={`min-h-screen flex items-center py-20 px-6 pl-20 lg:pl-28 ${t.section}`}>
+      <section id="blogs" className={`min-h-screen flex items-center py-20 px-6 pl-6 sm:pl-20 lg:pl-28 ${t.section}`}>
         <div className="max-w-5xl mx-auto w-full">
           <motion.h2 className="text-3xl md:text-4xl font-bold mb-12 text-center" variants={revealVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}>
             <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Blogs & Posts</span>
@@ -562,7 +562,7 @@ function App() {
       </section>
 
       {/* CERTIFICATIONS */}
-      <section id="certifications" className="min-h-screen flex items-center py-20 px-6 pl-20 lg:pl-28">
+      <section id="certifications" className="min-h-screen flex items-center py-20 px-6 pl-6 sm:pl-20 lg:pl-28">
         <div className="max-w-5xl mx-auto w-full">
           <motion.h2 className="text-3xl md:text-4xl font-bold mb-12 text-center" variants={revealVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}>
             <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Certifications & Awards</span>
@@ -593,7 +593,7 @@ function App() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className={`min-h-screen flex items-center py-20 px-6 pl-20 lg:pl-28 ${t.section}`}>
+      <section id="contact" className={`min-h-screen flex items-center py-20 px-6 pl-6 sm:pl-20 lg:pl-28 ${t.section}`}>
         <div className="max-w-4xl mx-auto w-full text-center">
           <motion.h2 className="text-3xl md:text-4xl font-bold mb-6" variants={revealVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}>
             <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Get In Touch</span>
