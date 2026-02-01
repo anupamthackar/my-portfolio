@@ -332,8 +332,8 @@ function App() {
               </motion.div>
               
               <motion.div variants={slideInRight} className="grid grid-cols-2 gap-4">
-                <img src="/docs/photo1.jpg" alt="Anupam" className="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300" />
-                <img src="/docs/photo3.jpg" alt="Anupam" className="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 mt-12" />
+                <img src="/profile-hero.png" alt="Anupam" className="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300" />
+                <img src="/photo3.jpg" alt="Anupam" className="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 mt-12" />
               </motion.div>
             </div>
           </motion.div>
