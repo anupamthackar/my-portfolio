@@ -161,15 +161,19 @@ const linkedInPosts = [
 
 const projects = [
   { title: "Tata Motor Fleet Edge", subtitle: "WatchOS Application", icon: <Watch className="w-6 h-6" />, color: "from-blue-500 to-cyan-500", tags: ["SwiftUI", "WatchOS", "AI", "SSE"],
-    features: ["SwiftUI-based watch app with React Native mobile integration", "WatchConnectivity for real-time data sync", "AI chat assistant with SSE streaming & speech-to-text", "Driving behavior analytics features"] },
+    features: ["SwiftUI-based watch app with React Native mobile integration", "WatchConnectivity for real-time data sync", "AI chat assistant with SSE streaming & speech-to-text", "Driving behavior analytics features"],
+    url: "https://apps.apple.com/in/app/tata-motors-fleet-edge/id1556047027" },
   { title: "Cinko (US)", subtitle: "Travel/Hospitality Platform", icon: <Plane className="w-6 h-6" />, color: "from-purple-500 to-pink-500", tags: ["SwiftUI", "Stripe", "Apple Pay", "AI"],
-    features: ["Led Phase 2 redesign: UIKit to SwiftUI migration", "Hotel booking with radius-based discovery", "Stripe & Apple Pay payment integration", "Multi-provider auth & AI chat assistant", "Migrated CocoaPods to Swift Package Manager"] },
+    features: ["Led Phase 2 redesign: UIKit to SwiftUI migration", "Hotel booking with radius-based discovery", "Stripe & Apple Pay payment integration", "Multi-provider auth & AI chat assistant", "Migrated CocoaPods to Swift Package Manager"],
+    url: "https://apps.apple.com/in/app/cinko/id1548717649" },
   { title: "Tata AIG", subtitle: "Insurance Application", icon: <Shield className="w-6 h-6" />, color: "from-green-500 to-emerald-500", tags: ["MVVM", "UIKit", "CoreLocation"],
-    features: ["Maintenance & feature enhancements with MVVM", "Policy linking & claims processing", "Document sharing functionalities", "Network locator for branches & service centers"] },
+    features: ["Maintenance & feature enhancements with MVVM", "Policy linking & claims processing", "Document sharing functionalities", "Network locator for branches & service centers"],
+    url: "https://apps.apple.com/in/app/tata-aig-insurance/id1586595850" },
   { title: "Union Bank India", subtitle: "Mobile Banking Application", icon: <Building2 className="w-6 h-6" />, color: "from-orange-500 to-red-500", tags: ["iOS", "Performance", "Production"],
-    features: ["Stability improvements & performance optimization", "Resolved critical production issues", "Ensured minimal downtime", "Enhanced user experience"] },
+    features: ["Stability improvements & performance optimization", "Resolved critical production issues", "Ensured minimal downtime", "Enhanced user experience"], url: "https://apps.apple.com/in/app/ekam/id6466278547" },
   { title: "NeoStore", subtitle: "E-commerce Training Project", icon: <ShoppingBag className="w-6 h-6" />, color: "from-cyan-500 to-blue-500", tags: ["UIKit", "MVVM", "CoreData"],
-    features: ["Product catalog & shopping cart", "Order management system", "Store locator functionality", "User profile management"] }
+    features: ["Product catalog & shopping cart", "Order management system", "Store locator functionality", "User profile management"],
+    url: "https://github.com/anupamthackar/NeoStore-Training-App" }
 ];
 
 function App() {
@@ -412,70 +416,78 @@ function App() {
           </motion.p>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project, i) => (
-              <Card3D key={i} className="group h-full">
-                <motion.div 
-                  className={`${t.card} border backdrop-blur-sm rounded-2xl overflow-hidden ${t.cardHover} transition-all h-full flex flex-col relative`}
-                  initial={{ opacity: 0, y: 40 }} 
-                  whileInView={{ opacity: 1, y: 0 }} 
-                  transition={{ delay: i * 0.1 }} 
+  {projects.map((project, i) => (
+    <Card3D key={i} className="group h-full">
+      {project.url ? (
+        <motion.a 
+          href={project.url} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className={`${t.card} border backdrop-blur-sm rounded-2xl overflow-hidden ${t.cardHover} transition-all h-full flex flex-col relative`}
+          initial={{ opacity: 0, y: 40 }} 
+          whileInView={{ opacity: 1, y: 0 }} 
+          transition={{ delay: i * 0.1 }} 
+          viewport={{ once: true }}
+          whileHover={{ y: -8 }}>
+          
+          {/* Top gradient bar */}
+          <div className={`h-1.5 bg-gradient-to-r ${project.color}`} />
+          
+          <div className="p-6 flex flex-col flex-1">
+            {/* Header */}
+            <div className="flex items-start justify-between mb-4">
+              <div className={`p-3 rounded-xl bg-gradient-to-br ${project.color} bg-opacity-20 text-white group-hover:scale-110 transition-transform shadow-lg`}>
+                {project.icon}
+              </div>
+              <span className={`text-[10px] font-mono ${t.faint} uppercase tracking-wider`}>Project {String(i + 1).padStart(2, '0')}</span>
+            </div>
+            
+            {/* Title */}
+            <h3 className={`text-xl font-bold ${t.text} mb-1 group-hover:text-cyan-400 transition-colors`}>{project.title}</h3>
+            <p className={`text-sm ${t.faint} mb-4`}>{project.subtitle}</p>
+            
+            {/* Tags */}
+            <div className="flex flex-wrap gap-1.5 mb-4">
+              {project.tags.map((tag, j) => (
+                <span key={j} className={`px-2 py-0.5 rounded-full text-[10px] font-mono bg-gradient-to-r ${project.color} bg-opacity-10 text-white border border-cyan-500/20`}>{tag}</span>
+              ))}
+            </div>
+            
+            {/* Features */}
+            <ul className="space-y-2 flex-1">
+              {project.features.map((feature, j) => (
+                <motion.li 
+                  key={j} 
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.2 + j * 0.05 }}
                   viewport={{ once: true }}
-                  whileHover={{ y: -8 }}>
-                  
-                  {/* Top gradient bar */}
-                  <div className={`h-1.5 bg-gradient-to-r ${project.color}`} />
-                  
-                  {/* Scanning line */}
-                  {/* <motion.div 
-                    className={`absolute left-0 right-0 h-px bg-gradient-to-r ${project.color} opacity-50`}
-                    animate={{ top: ["0%", "100%"] }}
-                    transition={{ duration: 3 + i * 0.5, repeat: Infinity, ease: "linear" }}
-                  /> */}
-                  
-                  <div className="p-6 flex flex-col flex-1">
-                    {/* Header */}
-                    <div className="flex items-start justify-between mb-4">
-                      <div className={`p-3 rounded-xl bg-gradient-to-br ${project.color} bg-opacity-20 text-white group-hover:scale-110 transition-transform shadow-lg`}>
-                        {project.icon}
-                      </div>
-                      <span className={`text-[10px] font-mono ${t.faint} uppercase tracking-wider`}>Project {String(i + 1).padStart(2, '0')}</span>
-                    </div>
-                    
-                    {/* Title */}
-                    <h3 className={`text-xl font-bold ${t.text} mb-1 group-hover:text-cyan-400 transition-colors`}>{project.title}</h3>
-                    <p className={`text-sm ${t.faint} mb-4`}>{project.subtitle}</p>
-                    
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-1.5 mb-4">
-                      {project.tags.map((tag, j) => (
-                        <span key={j} className={`px-2 py-0.5 rounded-full text-[10px] font-mono bg-gradient-to-r ${project.color} bg-opacity-10 text-white border border-cyan-500/20`}>{tag}</span>
-                      ))}
-                    </div>
-                    
-                    {/* Features */}
-                    <ul className="space-y-2 flex-1">
-                      {project.features.map((feature, j) => (
-                        <motion.li 
-                          key={j} 
-                          initial={{ opacity: 0, x: -10 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.2 + j * 0.05 }}
-                          viewport={{ once: true }}
-                          className={`flex items-start gap-2 text-xs ${t.muted}`}>
-                          <span className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${project.color} mt-1.5 flex-shrink-0 shadow-[0_0_4px_rgba(6,182,212,0.6)]`} />
-                          {feature}
-                        </motion.li>
-                      ))}
-                    </ul>
-                  </div>
-                  
-                  {/* Corner accents */}
-                  <div className={`absolute top-2 right-2 w-4 h-4 border-t border-r ${isDark ? 'border-cyan-400/20' : 'border-cyan-500/20'} opacity-0 group-hover:opacity-100 transition-opacity`} />
-                  <div className={`absolute bottom-2 left-2 w-4 h-4 border-b border-l ${isDark ? 'border-cyan-400/20' : 'border-cyan-500/20'} opacity-0 group-hover:opacity-100 transition-opacity`} />
-                </motion.div>
-              </Card3D>
-            ))}
+                  className={`flex items-start gap-2 text-xs ${t.muted}`}>
+                  <span className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${project.color} mt-1.5 flex-shrink-0 shadow-[0_0_4px_rgba(6,182,212,0.6)]`} />
+                  {feature}
+                </motion.li>
+              ))}
+            </ul>
           </div>
+          
+          {/* Corner accents */}
+          <div className={`absolute top-2 right-2 w-4 h-4 border-t border-r ${isDark ? 'border-cyan-400/20' : 'border-cyan-500/20'} opacity-0 group-hover:opacity-100 transition-opacity`} />
+          <div className={`absolute bottom-2 left-2 w-4 h-4 border-b border-l ${isDark ? 'border-cyan-400/20' : 'border-cyan-500/20'} opacity-0 group-hover:opacity-100 transition-opacity`} />
+        </motion.a>
+      ) : (
+        <motion.div 
+          className={`${t.card} border backdrop-blur-sm rounded-2xl overflow-hidden ${t.cardHover} transition-all h-full flex flex-col relative`}
+          initial={{ opacity: 0, y: 40 }} 
+          whileInView={{ opacity: 1, y: 0 }} 
+          transition={{ delay: i * 0.1 }} 
+          viewport={{ once: true }}
+          whileHover={{ y: -8 }}>
+          {/* ...existing card content (same as above) ... */}
+        </motion.div>
+      )}
+    </Card3D>
+  ))}
+</div>
         </div>
       </section>
 
@@ -587,7 +599,7 @@ function App() {
             <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Get In Touch</span>
           </motion.h2>
           <motion.p className={`text-base ${t.muted} mb-10 max-w-xl mx-auto`} variants={revealVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}>
-            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. and I'm looking forward to abroad opportunities as well. Feel free to reach out to me via email or phone, or connect with me on social media.
           </motion.p>
           
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="flex flex-wrap justify-center gap-4 mb-10">
