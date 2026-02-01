@@ -182,6 +182,13 @@ function App() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const { scrollYProgress } = useScroll();
   
+  const [isDesktop, setIsDesktop] = useState<boolean>(() => typeof window !== 'undefined' ? window.innerWidth >= 768 : true);
+  useEffect(() => {
+    const onResize = () => setIsDesktop(window.innerWidth >= 768);
+    onResize();
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
   const sections = [
     { id: 'hero', label: 'Home' }, { id: 'about', label: 'About' }, { id: 'experience', label: 'Experience' },
     { id: 'skills', label: 'Skills' }, { id: 'projects', label: 'Projects' }, { id: 'education', label: 'Education' },
@@ -234,9 +241,10 @@ function App() {
 
   return (
     <div className={`relative overflow-x-hidden ${t.bg} transition-colors duration-500`}>
-      <LiquidCursor />
-      <Particles isDark={isDark} />
-      
+      {/* <LiquidCursor />
+      <Particles isDark={isDark} /> */}
+      {isDesktop && <LiquidCursor />}
++     {isDesktop && <Particles isDark={isDark} />}
       {/* Parallax Background */}
       <div className="fixed inset-0 -z-10">
         <motion.div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full blur-[120px]" animate={{ x: mousePos.x * 50, y: mousePos.y * 50, background: isDark ? "radial-gradient(circle, rgba(6,182,212,0.25), transparent 70%)" : "radial-gradient(circle, rgba(6,182,212,0.12), transparent 70%)" }} />
@@ -271,7 +279,7 @@ function App() {
       </motion.nav>
 
       {/* HERO */}
-      <section id="hero" className="min-h-screen flex items-center justify-center px-6 pl-6 sm:pl-20 lg:pl-28 relative">
+      <section id="hero" className="min-h-screen flex items-center justify-center px-6 lg:pl-28 relative">
         <div className="absolute bottom-0 w-full h-1/2 opacity-20" style={{ backgroundImage: `linear-gradient(to bottom, transparent, rgba(6,182,212,0.1)), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: "100% 100%, 50px 50px, 50px 50px", transform: "perspective(500px) rotateX(60deg)", transformOrigin: "bottom" }} />
         
         <div className="text-center relative z-10 max-w-4xl mx-auto">
@@ -289,10 +297,19 @@ function App() {
           
           
           
-          <motion.h1 className={`text-4xl sm:text-5xl md:text-7xl font-black mb-5 ${t.text}`}>
+                    <motion.h1
+            className={`font-black mb-5 ${t.text} whitespace-nowrap max-w-full overflow-hidden`}
+            style={{ fontSize: 'clamp(1.5rem, 6vw, 3.75rem)', lineHeight: 1 }}
+          >
             {"ANUPAM THACKAR".split("").map((char, i) => (
-              <motion.span key={i} initial={{ opacity: 0, y: 80, rotateX: -90 }} animate={{ opacity: 1, y: 0, rotateX: 0 }} transition={{ delay: 0.5 + i * 0.04, type: "spring", stiffness: 150 }}
-                className="inline-block cursor-default hover:text-cyan-400 hover:scale-125 transition-all duration-200" style={{ textShadow: isDark ? "0 0 40px rgba(6,182,212,0.3)" : "none" }}>
+              <motion.span
+                key={i}
+                initial={{ opacity: 0, y: 80, rotateX: -90 }}
+                animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                transition={{ delay: 0.5 + i * 0.04, type: "spring", stiffness: 150 }}
+                className="inline-block cursor-default hover:text-cyan-400 hover:scale-110 transition-transform duration-200"
+                style={{ textShadow: isDark ? "0 0 40px rgba(6,182,212,0.3)" : "none" }}
+              >
                 {char === " " ? "\u00A0" : char}
               </motion.span>
             ))}
@@ -319,7 +336,7 @@ function App() {
       </section>
 
       {/* ABOUT */}
-      <section id="about" className="min-h-screen flex items-center py-20 px-6 pl-6 sm:pl-20 lg:pl-28">
+      <section id="about" className="min-h-screen flex items-center py-20 px-6 lg:pl-28">
         <div className="max-w-5xl mx-auto w-full">
           <motion.h2 className="text-3xl md:text-4xl font-bold mb-12 text-center" variants={revealVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}>
             <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">About Me</span>
@@ -348,7 +365,7 @@ function App() {
       </section>
 
       {/* EXPERIENCE */}
-      <section id="experience" className={`min-h-screen flex items-center py-20 px-6 pl-6 sm:pl-20 lg:pl-28 ${t.section}`}>
+       <section id="experience" className={`min-h-screen flex items-center py-20 px-6 lg:pl-28 ${t.section}`}>
         <div className="max-w-5xl mx-auto w-full">
           <motion.h2 className="text-3xl md:text-4xl font-bold mb-12 text-center" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Work Experience</span>
@@ -378,7 +395,7 @@ function App() {
       </section>
 
       {/* SKILLS */}
-      <section id="skills" className="min-h-screen flex items-center py-20 px-6 pl-6 sm:pl-20 lg:pl-28">
+      <section id="skills" className="min-h-screen flex items-center py-20 px-6 lg:pl-28">
         <div className="max-w-5xl mx-auto w-full">
           <motion.h2 className="text-3xl md:text-4xl font-bold mb-12 text-center" variants={revealVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}>
             <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Technical Skills</span>
@@ -406,7 +423,7 @@ function App() {
       </section>
 
       {/* PROJECTS */}
-      <section id="projects" className={`py-20 px-6 pl-6 sm:pl-20 lg:pl-28 ${t.section}`}>
+      <section id="projects" className={`py-20 px-6 lg:pl-28 ${t.section}`}>
         <div className="max-w-6xl mx-auto w-full">
           <motion.h2 className="text-3xl md:text-4xl font-bold mb-4 text-center" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
             <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Featured Projects</span>
@@ -492,7 +509,7 @@ function App() {
       </section>
 
       {/* EDUCATION */}
-      <section id="education" className="min-h-screen flex items-center py-20 px-6 pl-6 sm:pl-20 lg:pl-28">
+      <section id="education" className="min-h-screen flex items-center py-20 px-6 lg:pl-28">
         <div className="max-w-5xl mx-auto w-full">
           <motion.h2 className="text-3xl md:text-4xl font-bold mb-12 text-center" variants={revealVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}>
             <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Education</span>
@@ -515,7 +532,7 @@ function App() {
       </section>
 
       {/* BLOGS */}
-      <section id="blogs" className={`min-h-screen flex items-center py-20 px-6 pl-6 sm:pl-20 lg:pl-28 ${t.section}`}>
+      <section id="blogs" className={`min-h-screen flex items-center py-20 px-6 lg:pl-28 ${t.section}`}>
         <div className="max-w-5xl mx-auto w-full">
           <motion.h2 className="text-3xl md:text-4xl font-bold mb-12 text-center" variants={revealVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}>
             <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Blogs & Posts</span>
@@ -562,7 +579,7 @@ function App() {
       </section>
 
       {/* CERTIFICATIONS */}
-      <section id="certifications" className="min-h-screen flex items-center py-20 px-6 pl-6 sm:pl-20 lg:pl-28">
+      <section id="certifications" className="min-h-screen flex items-center py-20 px-6 lg:pl-28">
         <div className="max-w-5xl mx-auto w-full">
           <motion.h2 className="text-3xl md:text-4xl font-bold mb-12 text-center" variants={revealVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}>
             <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Certifications & Awards</span>
@@ -593,7 +610,7 @@ function App() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className={`min-h-screen flex items-center py-20 px-6 pl-6 sm:pl-20 lg:pl-28 ${t.section}`}>
+      <section id="contact" className={`min-h-screen flex items-center py-20 px-6 lg:pl-28 ${t.section}`}>
         <div className="max-w-4xl mx-auto w-full text-center">
           <motion.h2 className="text-3xl md:text-4xl font-bold mb-6" variants={revealVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}>
             <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Get In Touch</span>
