@@ -223,7 +223,7 @@ function App() {
           >
             <div className="relative inline-block">
               <img 
-                src="/docs/profile-hero.png" 
+                src="/profile-hero.png" 
                 alt="Anupam Thackar" 
                 className="w-40 h-40 md:w-52 md:h-52 rounded-full object-cover border-4 border-cyan-500/30 shadow-2xl shadow-cyan-500/20"
               />
@@ -332,7 +332,7 @@ function App() {
               </motion.div>
               
               <motion.div variants={slideInRight} className="grid grid-cols-2 gap-4">
-                <img src="/profile-hero.png" alt="Anupam" className="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300" />
+                <img src="/photo1.jpg" alt="Anupam" className="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300" />
                 <img src="/photo3.jpg" alt="Anupam" className="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 mt-12" />
               </motion.div>
             </div>
