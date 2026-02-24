@@ -8,6 +8,7 @@ import {
   easeInOut,
 } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
+import { Download } from 'lucide-react';
 import {
   Mail,
   Phone,
@@ -659,7 +660,23 @@ function App() {
           )}
         </AnimatePresence>
       </motion.button>
-
+          <motion.a
+  href="/resume/Anupam_Thackar_iOS_Developer_Resume.pdf"
+  download="Anupam_Thackar_iOS_Developer_Resume.pdf"
+  className={`fixed bottom-6 right-6 z-[9997] flex items-center gap-2 px-5 py-3 rounded-full font-semibold shadow-xl transition-all ${
+    isDark
+      ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:shadow-cyan-500/40'
+      : 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:shadow-cyan-500/30'
+  }`}
+  initial={{ opacity: 0, y: 100, scale: 0.8 }}
+  animate={{ opacity: 1, y: 0, scale: 1 }}
+  transition={{ delay: 2, type: 'spring', stiffness: 200 }}
+  whileHover={{ scale: 1.05, y: -2 }}
+  whileTap={{ scale: 0.95 }}
+>
+  <Download className="w-4 h-4" />
+  <span className="hidden sm:inline">Resume</span>
+</motion.a>
       {/* ── Sidebar Navigation ────────────────────────────────────────────────── */}
       <motion.nav
         aria-label="Page sections"
@@ -735,7 +752,7 @@ function App() {
             >
               <div className={`w-full h-full rounded-full overflow-hidden ${isDark ? 'bg-slate-950' : 'bg-gray-50'}`}>
                 <img
-                  src="/profile-hero.png"
+                  src="/profile_hero.png"
                   alt="Anupam Thackar – iOS Developer, Swift and SwiftUI specialist"
                   loading="eager"
                   className="w-full h-full object-cover"
@@ -867,8 +884,7 @@ function App() {
             >
               <motion.p variants={staggerItem} className={`text-base leading-relaxed ${t.muted}`}>
                 I'm a passionate iOS Developer based in India, currently working at NeoSoft. With a strong foundation
-                in Computer Science from MIT ADT University and specialized training from Scaler Academy, I bring both
-                theoretical knowledge and practical expertise to every project.
+                in Computer Science from MIT ADT University and specialized training from Scaler Academy, I bring deep technical understanding along with practical, results driven development experience to every project.
               </motion.p>
               <motion.p variants={staggerItem} className={`text-base leading-relaxed ${t.muted}`}>
                 My journey in iOS development has been marked by continuous learning and innovation. I've successfully
@@ -897,7 +913,7 @@ function App() {
               <Card3D className="group">
                 <div className={`rounded-2xl p-7 ${t.card} border backdrop-blur-sm ${t.cardHover} transition-all`}>
                   <div className="text-5xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-3">
-                    1.8+
+                    2+
                   </div>
                   <div className={`text-lg font-semibold ${t.text}`}>Years Experience</div>
                   <div className={t.faint}>Production iOS &amp; watchOS Apps</div>

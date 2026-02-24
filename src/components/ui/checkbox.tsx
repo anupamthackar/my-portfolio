@@ -388,7 +388,7 @@ function App() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <motion.div variants={slideInLeft} className="space-y-6">
                 <p className="text-lg text-slate-300 leading-relaxed">
-                  I'm a passionate iOS Developer based in India, currently working at NeoSoft. With a strong foundation in Computer Science from MIT ADT University and specialized training from Scaler Academy, I bring both theoretical knowledge and practical expertise to every project.
+                  I'm a passionate iOS Developer based in India, currently working at NeoSoft. With a strong foundation in Computer Science from MIT ADT University and specialized training from Scaler Academy, I bring deep technical understanding along with practical, results-driven development experience to every project.
                 </p>
                 <p className="text-lg text-slate-300 leading-relaxed">
                   My journey in iOS development has been marked by continuous learning and innovation. I've successfully delivered production-ready applications across multiple domains including mobility, travel/hospitality, insurance, and banking sectors.
@@ -728,7 +728,7 @@ function App() {
                 <Linkedin className="w-5 h-5 text-cyan-400" />
                 LinkedIn Posts
                 <a 
-                  href="https://www.linkedin.com/in/anupamthackar67/" 
+                  href="https://www.linkedin.com/in/anupamthackar/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="ml-auto text-sm text-cyan-400 hover:text-cyan-300 flex items-center gap-1"
@@ -883,7 +883,7 @@ function App() {
               variants={staggerItem}
             >
               <motion.a 
-                href="https://linkedin.com/in/anupamthackar67"
+                href="https://linkedin.com/in/anupamthackar"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-5 rounded-2xl bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 text-slate-400 hover:text-cyan-400 hover:border-cyan-500/50 transition-all duration-300"
