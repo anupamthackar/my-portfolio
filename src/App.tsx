@@ -794,8 +794,8 @@ function App() {
             animate={{ opacity: 1 }}
             transition={{ delay: 1.1 }}
           >
-            iOS Developer with 1.8+ years and 4 live App Store apps. Specialist in Swift, SwiftUI &amp; watchOS —
-            available for hire. Delivered real-time AI features across fintech, banking &amp; travel.
+            Crafting App Store-ready iOS & watchOS experiences with Swift and SwiftUI.
+  Delivered AI-powered, real-time features across fintech, banking & travel.
           </motion.p>
 
           {/* CTA Buttons */}
