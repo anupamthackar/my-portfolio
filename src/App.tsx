@@ -752,7 +752,7 @@ function App() {
             >
               <div className={`w-full h-full rounded-full overflow-hidden ${isDark ? 'bg-slate-950' : 'bg-gray-50'}`}>
                 <img
-                  src="/profile_hero.png"
+                  src="/profile_hero.webp"
                   alt="Anupam Thackar – iOS Developer, Swift and SwiftUI specialist"
                   loading="eager"
                   className="w-full h-full object-cover"
