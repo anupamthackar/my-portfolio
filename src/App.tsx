@@ -634,7 +634,7 @@ function App() {
           
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} className="flex justify-center gap-5">
             <motion.div variants={staggerItem}>
-              <MagneticBtn href="https://linkedin.com/in/anupamthackar67" className={`w-14 h-14 flex items-center justify-center rounded-xl ${t.card} border backdrop-blur-sm ${isDark ? 'text-slate-400' : 'text-slate-500'} hover:text-cyan-400 ${t.cardHover} transition-all`}>
+              <MagneticBtn href="https://linkedin.com/in/anupamthackar" className={`w-14 h-14 flex items-center justify-center rounded-xl ${t.card} border backdrop-blur-sm ${isDark ? 'text-slate-400' : 'text-slate-500'} hover:text-cyan-400 ${t.cardHover} transition-all`}>
                 <Linkedin className="w-6 h-6" />
               </MagneticBtn>
             </motion.div>
