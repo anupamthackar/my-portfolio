@@ -30,7 +30,9 @@ import {
   Plane,
   Shield,
   Building2,
-  ShoppingBag,
+  Package,
+  Zap,
+  BrainCircuit,
 } from 'lucide-react';
 
 // ─── Liquid Cursor with trail ─────────────────────────────────────────────────
@@ -338,75 +340,89 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: 'Tata Motor Fleet Edge',
-    subtitle: 'WatchOS Application',
-    icon: <Watch className="w-6 h-6" />,
-    color: 'from-blue-500 to-cyan-500',
-    tags: ['SwiftUI', 'WatchOS', 'AI', 'SSE'],
-    features: [
-      'SwiftUI-based watch app with React Native mobile integration',
-      'WatchConnectivity for real-time data sync',
-      'AI chat assistant with SSE streaming & speech-to-text',
-      'Driving behavior analytics features',
-    ],
-    url: 'https://apps.apple.com/in/app/tata-motors-fleet-edge/id1556047027',
-  },
-  {
-    title: 'Cinko (US)',
-    subtitle: 'Travel/Hospitality Platform',
+    title: 'Cinko',
+    subtitle: 'Hotel Booking Platform · US Client · Production',
     icon: <Plane className="w-6 h-6" />,
     color: 'from-purple-500 to-pink-500',
-    tags: ['SwiftUI', 'Stripe', 'Apple Pay', 'AI'],
+    tags: ['SwiftUI', 'Stripe', 'Apple Pay', 'Google Maps', 'RAG', 'SSE'],
     features: [
-      'Led Phase 2 redesign: UIKit to SwiftUI migration',
-      'Hotel booking with radius-based discovery',
-      'Stripe & Apple Pay payment integration',
-      'Multi-provider auth & AI chat assistant',
-      'Migrated CocoaPods to Swift Package Manager',
+      'Architected complete booking flow from search to payment confirmation',
+      'Integrated Stripe & Apple Pay — 99.5% transaction success rate in production',
+      'Built AI chat assistant with real-time SSE streaming and RAG-based context retrieval',
+      'CoreLocation + Google Places API for radius-based hotel discovery',
+      'Multi-provider auth: Sign in with Apple · Sign in with Google',
     ],
     url: 'https://apps.apple.com/in/app/cinko/id1548717649',
   },
   {
-    title: 'Tata AIG',
-    subtitle: 'Insurance Application',
+    title: 'Tata Motor Fleet Edge',
+    subtitle: 'watchOS Companion App · Tata Motors · Production',
+    icon: <Watch className="w-6 h-6" />,
+    color: 'from-blue-500 to-cyan-500',
+    tags: ['SwiftUI', 'watchOS', 'Foundation Models', 'WatchConnectivity', 'SSE'],
+    features: [
+      'Built watchOS app from scratch with WatchConnectivity for iPhone–Watch sync',
+      'Integrated Foundation Models framework for on-device AI chat (no server calls)',
+      'Speech-to-text AI chat for hands-free fleet queries on Apple Watch',
+      'Real-time driving behaviour analytics displayed on-wrist for fleet managers',
+    ],
+    url: 'https://apps.apple.com/in/app/tata-motors-fleet-edge/id1556047027',
+  },
+  {
+    title: 'ApplePlatformToolkit',
+    subtitle: 'Open Source SDK · v1.1.0 · 10 Modules',
+    icon: <Package className="w-6 h-6" />,
+    color: 'from-orange-500 to-amber-500',
+    tags: ['Swift 6', 'SPM', 'Actors', 'CryptoKit', 'DocC'],
+    features: [
+      'Enterprise-grade modular SDK built for Swift 6 Concurrency (Actors, async/await)',
+      '10 fully decoupled modules: Networking (circuit breakers), Auth (biometric + Keychain), Crypto (AES-GCM), UI, Plugins (EventBus) and more',
+      'Protocol-oriented design with dependency injection throughout',
+      'Full DocC documentation + ToolkitDemo.swiftpm app included',
+    ],
+    url: 'https://github.com/anupamthackar/ApplePlatformToolkit',
+  },
+  {
+    title: 'GlassKit',
+    subtitle: 'Open Source SwiftUI Framework',
+    icon: <Zap className="w-6 h-6" />,
+    color: 'from-cyan-500 to-teal-500',
+    tags: ['SwiftUI', 'SPM', 'WCAG 2.1', 'DocC', 'Environment'],
+    features: [
+      'Environment-driven SwiftUI component framework with Liquid Glass design system',
+      'Zero hardcoded values — all theming via SwiftUI EnvironmentValues',
+      'WCAG 2.1 / AX5 accessibility compliance baked into every component',
+      'Full DocC coverage · SwiftUI #Preview for every component (light/dark)',
+    ],
+    url: 'https://github.com/anupamthackar/GlassKit',
+  },
+  {
+    title: 'Tata AIG Insurance',
+    subtitle: 'Insurance Application · Production',
     icon: <Shield className="w-6 h-6" />,
     color: 'from-green-500 to-emerald-500',
-    tags: ['MVVM', 'UIKit', 'CoreLocation'],
+    tags: ['UIKit', 'MVVM', 'MapKit', 'Secure Docs'],
     features: [
-      'Maintenance & feature enhancements with MVVM',
-      'Policy linking & claims processing',
-      'Document sharing functionalities',
-      'Network locator for branches & service centers',
+      'Delivered policy management and claims processing features',
+      'Built network hospital locator with MapKit integration',
+      'Secure document handling for policy documents and claims',
+      'Production-grade error handling and validation',
     ],
     url: 'https://apps.apple.com/in/app/tata-aig-insurance/id1586595850',
   },
   {
-    title: 'Union Bank India',
-    subtitle: 'Mobile Banking Application',
+    title: 'Union Bank of India',
+    subtitle: 'Banking App · Millions of Users · Production',
     icon: <Building2 className="w-6 h-6" />,
     color: 'from-orange-500 to-red-500',
-    tags: ['iOS', 'Performance', 'Production'],
+    tags: ['UIKit', 'Performance', 'Instruments', 'Production'],
     features: [
-      'Stability improvements & performance optimization',
-      'Resolved critical production issues',
-      'Ensured minimal downtime',
-      'Enhanced user experience',
+      'Resolved critical production bugs with zero downtime for millions of active users',
+      'Performance optimisation using Instruments to trace memory leaks and race conditions',
+      'Coordinated with bank’s QA team for rapid validation and deployment',
+      'Enhanced stability across high-traffic banking workflows',
     ],
     url: 'https://apps.apple.com/in/app/ekam/id6466278547',
-  },
-  {
-    title: 'NeoStore',
-    subtitle: 'E-commerce Training Project',
-    icon: <ShoppingBag className="w-6 h-6" />,
-    color: 'from-cyan-500 to-blue-500',
-    tags: ['UIKit', 'MVVM', 'CoreData'],
-    features: [
-      'Product catalog & shopping cart',
-      'Order management system',
-      'Store locator functionality',
-      'User profile management',
-    ],
-    url: 'https://github.com/anupamthackar/NeoStore-Training-App',
   },
 ];
 
@@ -533,46 +549,66 @@ function App() {
     {
       category: 'iOS Development',
       items: [
-        'Swift', 'UIKit', 'SwiftUI', 'watchOS', 'WatchConnectivity',
-        'Combine', 'Concurrency', 'MVVM', 'async/await', 'Memory Management',
+        'Swift', 'SwiftUI', 'UIKit', 'watchOS', 'WatchConnectivity',
+        'Combine', 'async/await', 'Swift Concurrency', 'MVVM', 'Clean Architecture', 'XCTest',
       ],
       icon: <Code className="w-5 h-5" />,
     },
     {
-      category: 'Backend & Integration',
+      category: 'AI & Machine Learning',
       items: [
-        'REST APIs', 'URLSession', 'Alamofire', 'SSE Streaming',
-        'AI Chat Integration', 'Speech-to-Text', 'React Native Bridging',
+        'CoreML', 'Foundation Models', 'On-Device AI', 'SSE Streaming',
+        'RAG', 'AI Chat Integration', 'Speech-to-Text',
+      ],
+      icon: <BrainCircuit className="w-5 h-5" />,
+    },
+    {
+      category: 'Generative AI',
+      items: [
+        'OpenAI GPTs', 'Claude', 'Google Gemini', 'Prompt Engineering',
+        'IBM GenAI Certificate', 'Google GenAI Certificate',
+      ],
+      icon: <Zap className="w-5 h-5" />,
+    },
+    {
+      category: 'Integrations & Backend',
+      items: [
+        'REST APIs', 'Alamofire', 'Stripe', 'Apple Pay',
+        'Google Maps SDK', 'Firebase', 'CoreData', 'CoreLocation',
       ],
       icon: <Cpu className="w-5 h-5" />,
     },
     {
-      category: 'Data & Core Technologies',
+      category: 'DevOps & Tools',
       items: [
-        'Core Data', 'CoreLocation', 'AVFoundation',
-        'CocoaPods', 'Swift Package Manager', 'Git/GitHub',
+        'Xcode', 'Git', 'SPM', 'CocoaPods', 'CI/CD',
+        'Xcode Cloud', 'Fastlane', 'GitHub Actions', 'TestFlight', 'JIRA',
       ],
-      icon: <Database className="w-5 h-5" />,
+      icon: <Terminal className="w-5 h-5" />,
     },
     {
-      category: 'Problem Solving',
-      items: ['Data Structures & Algorithms', 'Python', 'SQL', 'Low-Level Design (LLD)'],
-      icon: <Terminal className="w-5 h-5" />,
+      category: 'Computer Science',
+      items: ['Data Structures & Algorithms', 'Low-Level Design (LLD)', 'High-Level Design (HLD)', 'Python', 'SQL'],
+      icon: <Database className="w-5 h-5" />,
     },
   ];
 
   const certifications = [
-    'Data Structures & Algorithms',
-    'Python Programming',
-    'SQL Database Management',
-    'Low-Level Design (LLD)',
-    'High-Level Design (HLD)',
+    { label: 'IBM Generative AI Professional Certificate', issuer: 'Coursera · IBM', highlight: true },
+    { label: 'Google Generative AI Certificate', issuer: 'Google Cloud · Coursera', highlight: true },
+    { label: 'Data Structures & Algorithms', issuer: 'Scaler Academy', highlight: false },
+    { label: 'Low-Level Design (LLD)', issuer: 'Scaler Academy', highlight: false },
+    { label: 'High-Level Design (HLD)', issuer: 'Scaler Academy', highlight: false },
+    { label: 'Python Programming', issuer: 'Scaler Academy', highlight: false },
+    { label: 'SQL Database Management', issuer: 'Scaler Academy', highlight: false },
   ];
 
   const achievements = [
     'Top 10% performer in Scaler Academy programming challenges',
-    'Successfully solved 500+ Data Structures and Algorithms problems',
-    'Experience in international client collaboration (US client projects)',
+    '500+ Data Structures and Algorithms problems solved',
+    'Delivered apps serving millions of users (Union Bank of India, Tata Group)',
+    'Led UIKit-to-SwiftUI migration — 25% faster build times across multiple codebases',
+    'Collaborated with US-based clients in Agile sprints across multiple enterprise projects',
   ];
 
   useEffect(() => {
@@ -801,7 +837,7 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
-            <ScrambleText text="iOS DEVELOPER" className="text-cyan-400 text-sm font-medium tracking-widest" />
+            <ScrambleText text="SENIOR iOS DEVELOPER" className="text-cyan-400 text-sm font-medium tracking-widest" />
           </motion.div>
 
           {/* Hero description — SEO-optimised copy */}
@@ -811,8 +847,10 @@ function App() {
             animate={{ opacity: 1 }}
             transition={{ delay: 1.1 }}
           >
-            Crafting App Store-ready iOS & watchOS experiences with Swift and SwiftUI.
-  Delivered AI-powered, real-time features across fintech, banking & travel.
+            Building production-grade iOS &amp; watchOS apps serving{' '}
+            <span className="text-cyan-400 font-semibold">millions of users</span> across banking,
+            insurance, and automotive. AI specialist — CoreML, Foundation Models, RAG. Open source{' '}
+            <span className="text-cyan-400 font-semibold">SPM library author</span>.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -838,6 +876,17 @@ function App() {
             >
               View Projects
             </MagneticBtn>
+          </motion.div>
+
+          {/* Availability pill */}
+          <motion.div
+            className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-green-500/40 bg-green-500/10 backdrop-blur-sm"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.5 }}
+          >
+            <span className="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_8px_rgba(74,222,128,0.8)] animate-pulse" />
+            <span className="text-green-400 text-sm font-medium">Available from July 2026 — India · UAE · Europe · Remote</span>
           </motion.div>
 
           {/* Scroll cue */}
@@ -883,16 +932,22 @@ function App() {
               className="space-y-5"
             >
               <motion.p variants={staggerItem} className={`text-base leading-relaxed ${t.muted}`}>
-                I'm a passionate iOS Developer based in India, currently working at NeoSoft. With a strong foundation
-                in Computer Science from MIT ADT University and specialized training from Scaler Academy, I bring deep technical understanding along with practical, results driven development experience to every project.
+                2+ years shipping production iOS apps used by{' '}
+                <span className="text-cyan-400 font-semibold">millions of users</span> across banking, insurance,
+                fleet management, and travel — at NeoSoft Technologies, Mumbai.
               </motion.p>
               <motion.p variants={staggerItem} className={`text-base leading-relaxed ${t.muted}`}>
-                My journey in iOS development has been marked by continuous learning and innovation. I've successfully
-                delivered production-ready applications across multiple domains including mobility, travel/hospitality,
-                insurance, and banking sectors.
+                I specialise in Swift, SwiftUI, and AI integration: CoreML, Foundation Models, SSE Streaming, and
+                RAG-based chat systems — shipped in production for Tata Motors and a US hotel booking platform.
+                I also author open source Swift libraries (<span className="text-cyan-400 font-medium">ApplePlatformToolkit · GlassKit</span>) for Apple platform developers.
+              </motion.p>
+              <motion.p variants={staggerItem} className={`text-base leading-relaxed ${t.muted}`}>
+                With a CS foundation from MIT ADT University and{' '}
+                <span className="text-cyan-400 font-medium">Top 10% performance at Scaler Academy</span> (DSA, LLD, HLD),
+                I bridge strong fundamentals with hands-on enterprise delivery and US client collaboration.
               </motion.p>
               <motion.div variants={staggerItem} className="flex flex-wrap gap-2 pt-3">
-                {['Swift', 'SwiftUI', 'UIKit', 'watchOS', 'MVVM', 'Combine'].map((s, i) => (
+                {['Swift', 'SwiftUI', 'UIKit', 'watchOS', 'CoreML', 'Foundation Models', 'RAG'].map((s, i) => (
                   <motion.span
                     key={i}
                     className="px-3 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-sm"
@@ -912,11 +967,28 @@ function App() {
             >
               <Card3D className="group">
                 <div className={`rounded-2xl p-7 ${t.card} border backdrop-blur-sm ${t.cardHover} transition-all`}>
-                  <div className="text-5xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-3">
-                    2+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <div className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-1">2+</div>
+                      <div className={`text-sm font-semibold ${t.text}`}>Years Experience</div>
+                      <div className={`text-xs ${t.faint}`}>Production iOS &amp; watchOS</div>
+                    </div>
+                    <div>
+                      <div className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-1">M+</div>
+                      <div className={`text-sm font-semibold ${t.text}`}>Users Served</div>
+                      <div className={`text-xs ${t.faint}`}>Union Bank, Tata Group</div>
+                    </div>
+                    <div>
+                      <div className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-1">2</div>
+                      <div className={`text-sm font-semibold ${t.text}`}>SPM Libraries</div>
+                      <div className={`text-xs ${t.faint}`}>Open Source Published</div>
+                    </div>
+                    <div>
+                      <div className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-1">4</div>
+                      <div className={`text-sm font-semibold ${t.text}`}>Domains</div>
+                      <div className={`text-xs ${t.faint}`}>Banking · Insurance · Fleet · Travel</div>
+                    </div>
                   </div>
-                  <div className={`text-lg font-semibold ${t.text}`}>Years Experience</div>
-                  <div className={t.faint}>Production iOS &amp; watchOS Apps</div>
                 </div>
               </Card3D>
             </motion.div>
@@ -960,12 +1032,13 @@ function App() {
                 <div className="md:col-span-2 md:pl-6">
                   <ul className="space-y-3">
                     {[
-                      'Develop and maintain production iOS and watchOS applications using Swift, UIKit, and SwiftUI',
-                      'Implement MVVM architecture patterns ensuring clean, scalable codebases',
-                      'Integrate real-time features using SSE streaming for enhanced user experiences',
-                      'Deliver AI-assisted features including chat assistants and speech-to-text',
-                      'Lead migration from UIKit to SwiftUI',
-                      'Provide maintenance across mobility, travel, insurance, and banking sectors',
+                      'Build and maintain high-performance iOS and watchOS apps for enterprise clients across banking, insurance, travel, and automotive sectors in India and the US',
+                      'Led UIKit-to-SwiftUI migrations and CocoaPods-to-SPM modernisation, reducing build times by 25% across multiple codebases',
+                      'Integrated production AI features: CoreML on-device models, Foundation Models on watchOS, real-time SSE streaming, and RAG-based chat assistants',
+                      'Architected scalable MVVM + Clean Architecture solutions; implemented CI/CD pipelines via Xcode Cloud, Fastlane, and GitHub Actions',
+                      'Collaborated with US-based clients in Agile sprints — cross-timezone standups, sprint planning, and code reviews',
+                      'Mentored junior iOS developers; conducted code reviews and maintained technical documentation for cross-functional teams',
+                      'Implemented accessibility (VoiceOver, Dynamic Type) and localisation for users across India, Europe, and the US',
                     ].map((item, i) => (
                       <motion.li
                         key={i}
@@ -1065,7 +1138,7 @@ function App() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            Production applications across mobility, travel, insurance, and banking sectors
+          Production applications and open source libraries across banking, insurance, fleet management, and travel
           </motion.p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -1125,8 +1198,8 @@ function App() {
               {
                 period: '2022 – 2024',
                 title: 'Scaler Academy',
-                desc: 'Specialization in Software Development & Problem Solving',
-                extra: null,
+                desc: 'Software Development Specialization · Top 10% Performer',
+                extra: 'DSA · LLD · HLD · SQL · Python · 500+ problems solved',
               },
             ].map((edu, i) => (
               <motion.div key={i} variants={i === 0 ? revealFromLeft : revealFromRight}>
@@ -1303,11 +1376,28 @@ function App() {
               className={`text-lg font-semibold ${t.text} mb-5 flex items-center gap-2`}
             >
               <Layers className="w-5 h-5 text-cyan-400" />
-              Scaler Academy Certifications
+              Professional Certifications
             </motion.h3>
 
+            <div className="grid sm:grid-cols-2 gap-3 mb-8">
+              {certifications.filter(c => c.highlight).map((c, i) => (
+                <motion.div
+                  key={i}
+                  variants={staggerItem}
+                  className={`${isDark ? 'bg-gradient-to-br from-amber-500/10 to-yellow-500/5 border-amber-500/30' : 'bg-amber-50 border-amber-200'} border backdrop-blur-sm rounded-xl p-4 ${t.cardHover} transition-all flex items-start gap-3`}
+                  whileHover={{ scale: 1.02, y: -2 }}
+                >
+                  <span className="text-2xl">🎓</span>
+                  <div>
+                    <div className={`font-semibold text-sm ${t.text}`}>{c.label}</div>
+                    <div className={`text-xs ${t.faint} mt-0.5`}>{c.issuer}</div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
-              {certifications.map((c, i) => (
+              {certifications.filter(c => !c.highlight).map((c, i) => (
                 <motion.div
                   key={i}
                   variants={staggerItem}
@@ -1315,7 +1405,10 @@ function App() {
                   whileHover={{ scale: 1.03, y: -2 }}
                 >
                   <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_6px_rgba(6,182,212,0.8)] flex-shrink-0" />
-                  <span className={t.muted}>{c}</span>
+                  <div>
+                    <span className={`text-sm ${t.muted}`}>{c.label}</span>
+                    <div className={`text-xs ${t.faint}`}>{c.issuer}</div>
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -1376,9 +1469,9 @@ function App() {
             whileInView="visible"
             viewport={{ once: true, margin: '-50px' }}
           >
-            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
-            I'm also looking forward to international opportunities. Feel free to reach out via email or phone, or
-            connect with me on social media.
+            Open to discussing senior iOS developer roles in India, UAE, Europe, or remote. Specialising in Swift, SwiftUI, AI integration, and open source SPM development.
+            Available from{' '}<span className="text-cyan-400 font-semibold">July 2026</span>.
+            Reach out via email, phone, or connect on LinkedIn / GitHub.
           </motion.p>
 
           <motion.div
